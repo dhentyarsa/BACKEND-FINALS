@@ -157,7 +157,7 @@ app.get('/productcatchild', (req, res) => {
         FROM categories c 
         LEFT JOIN categories ct ON c.id = ct.parentId 
         HAVING child_category IS NULL 
-        ORDER BY c.i;`
+        ORDER BY c.id;`
     connection.query(query, (err, results) => {
         if (err) {
             return res.status(500).send(err)
