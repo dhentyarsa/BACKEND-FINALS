@@ -182,8 +182,8 @@ app.delete('/productcat/:id', (req, res) => {
 
 // add product category //
 
-app.post('/productcat/:catId/:parId', (req,res) => {
-    const query = `INSERT INTO productcat(categoryId,parentId) values(${connection.escape(req.params.catId,req.params.parId)})`;
+app.post('/productcat', (req,res) => {
+    const query = `INSERT INTO productcat SET ?`;
     connection.query(query, req.body, (err, results) => {
         if (err) {
             return res.status(500).send(err)
