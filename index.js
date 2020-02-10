@@ -192,14 +192,4 @@ app.post('/productcat/:catId/:parId', (req,res) => {
     })
 })
 
-app.post('/productcat/:catId/:parId', (req,res) => {
-    const query = `INSERT INTO productcat(categoryId,parentId) values(${connection.escape(req.params.catId,req.params.parId)})`;
-    connection.query(query, req.body, (err, results) => {
-        if (err) {
-            return res.status(500).send(err)
-        }
-        res.status(200).send('== New Product Category Added! ==')
-    })
-})
-
 app.listen(PORT, () => console.log(`API running on PORT ${PORT}`))
